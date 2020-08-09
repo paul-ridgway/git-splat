@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import simpleGit, { SimpleGit } from 'simple-git';
 import { inspect } from 'util';
 import { exec } from 'child_process';
@@ -10,7 +12,7 @@ function camelize(str: string): string {
 }
 
 async function run(): Promise<void> {
-  console.log("Git Splat in", process.cwd);
+  console.log("Git Splat in", process.cwd());
   const log = await git.log();
   console.log(`Exporting ${log.total} commits...`);
   log.all.forEach((l, i): void => {
