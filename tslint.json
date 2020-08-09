@@ -10,6 +10,7 @@
       true,
       2
     ],
+    "no-console": false,
     "no-floating-promises": true,
     "max-classes-per-file": 5,
     "typedef": [
