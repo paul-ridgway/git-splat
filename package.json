@@ -1,0 +1,41 @@
+{
+  "name": "git-splat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "bin": {
+    "git-splat": "./lib/index.js",
+    "splat": "./lib/index.js"
+  },
+  "scripts": {
+    "start": "ts-node-dev --respawn --debug --transpileOnly src/index.ts",
+    "build": "tsc -p .",
+    "check": "npm run compile && npm run lint:all",
+    "compile:watch": "tsc --watch --noEmit --skipLibCheck",
+    "compile": "tsc --noEmit --skipLibCheck",
+    "lint": "tslint --project .",
+    "lint:fix": "tslint --project . --fix",
+    "prettify": "prettier --write $(find src -name '*.ts')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paul-ridgway/git-splat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paul-ridgway/git-splat/issues"
+  },
+  "homepage": "https://github.com/paul-ridgway/git-splat#readme",
+  "dependencies": {
+    "simple-git": "^2.15.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.49",
+    "tslint": "^6.1.2",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.9.5"
+  }
+}
