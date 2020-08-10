@@ -16,8 +16,8 @@ async function run(): Promise<void> {
   const log = await git.log();
   console.log(`Exporting ${log.total} commits...`);
   log.all.forEach((l, i): void => {
-    console.log("Processing commit:", l.message);
     const n = log.total - i;
+    console.log(`Processing commit (${i + 1} / ${log.total}):`, l.message);
     const name = camelize(l.message.toLowerCase());
     const cmd = `git archive --format=zip --output=${n}-${name}.zip ${l.hash}`;
     exec(cmd, (error, stdout, stderr): void => {
