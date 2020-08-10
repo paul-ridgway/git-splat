@@ -16,7 +16,7 @@ async function run(): Promise<void> {
   log.all.forEach((l, i): void => {
     console.log("Processing commit:", l.message);
     const n = log.total - i;
-    const name = camelize(l.message.toLowerCase());
+    const name = camelize(l.message.replace(/[^a-z0-9]/gmi, " ").replace(/\s+/g, " ").toLowerCase());
     const cmd = `git archive --format=zip --output=${n}-${name}.zip ${l.hash}`;
     exec(cmd, (error, stdout, stderr): void => {
       if (error) {
